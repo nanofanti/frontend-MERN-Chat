@@ -7,8 +7,8 @@ export default function Message() {
         </div>
       </div>
       <div className="chat-bubble text-white bg-green-500">Hi! What's up?</div>
-      <div className="chat-footer text-xs opacity-50 flex gap-1 items-center">
-        Hi! What's up?
+      <div className="chat-footer text-xs text-white opacity-50 flex gap-1 items-center">
+        10:47
       </div>
     </div>
   );
