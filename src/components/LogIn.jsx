@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function LogIn() {
   return (
     //To get the glass effect https://tailwindcss-glassmorphism.vercel.app/
@@ -29,12 +31,12 @@ export default function LogIn() {
               id="password"
             />
           </div>
-          <a
-            href="#"
+          <Link
+            to="/signup"
             className="text-sm hover:underline hover:text-green-600 mt-2 inline-block"
           >
             {"Don't"} have an account?
-          </a>
+          </Link>
           <div>
             <button className="btn btn-block btn-sm mt-2">Log In</button>
           </div>
