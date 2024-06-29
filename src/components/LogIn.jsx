@@ -1,6 +1,19 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import useLogin from "../hooks/useLogin";
 
 export default function LogIn() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  //Custom Hook calling
+  const { loading, login } = useLogin();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(username, password);
+  };
+
   return (
     //To get the glass effect https://tailwindcss-glassmorphism.vercel.app/
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
@@ -8,7 +21,7 @@ export default function LogIn() {
         <h1 className="text-3xl font-semibold text-center text-gray-300">
           Log In <span className="text-green-500"> ChatApp</span>
         </h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <label className="label p-2" htmlFor="username">
               <span className="text-base label-text">Username</span>
@@ -18,6 +31,8 @@ export default function LogIn() {
               placeholder="Enter username"
               className="w-full input input-bordered h-10"
               id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div>
@@ -29,6 +44,8 @@ export default function LogIn() {
               placeholder="Enter password"
               className="w-full input input-bordered h-10"
               id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <Link
@@ -38,7 +55,13 @@ export default function LogIn() {
             {"Don't"} have an account?
           </Link>
           <div>
-            <button className="btn btn-block btn-sm mt-2">Log In</button>
+            <button className="btn btn-block btn-sm mt-2" disabled={loading}>
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Log In"
+              )}
+            </button>
           </div>
         </form>
       </div>
