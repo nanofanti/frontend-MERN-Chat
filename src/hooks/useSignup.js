@@ -6,7 +6,7 @@ import { AuthContext } from "../contexts/AuthContext";
 export default function useSignup() {
   const [loading, setLoading] = useState(false);
 
-  const { authUser, setAuthUser } = useContext(AuthContext);
+  const { setAuthUser } = useContext(AuthContext);
 
   const signup = async ({
     fullName,
@@ -23,6 +23,7 @@ export default function useSignup() {
       gender,
     });
     if (!success) return;
+
     setLoading(true);
     try {
       const res = await fetch("http://localhost:8080/user/signup", {
