@@ -12,6 +12,7 @@ export default function MessageInput() {
     await sendMessage(message);
     setMessage("");
   };
+
   return (
     <div>
       <form className="px-4 my-3" onSubmit={handleSubmit}>

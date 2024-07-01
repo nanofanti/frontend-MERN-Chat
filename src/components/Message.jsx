@@ -23,7 +23,7 @@ export default function Message({ message }) {
           <img src={profilePic} alt="" />
         </div>
       </div>
-      <div className={`chat-bubble text-white ${bubbleBgColor}`}>
+      <div className={`chat-bubble text-white ${bubbleBgColor} pb-2`}>
         {message.message}
       </div>
       <div className="chat-footer text-xs text-white opacity-50 flex gap-1 items-center">
