@@ -31,7 +31,7 @@ export default function useGetMessages() {
       }
     };
 
-    if (selectedConversation?._id) getMessages();
+    getMessages();
   }, [selectedConversation?._id, setMessages]);
 
   return { loading, messages };

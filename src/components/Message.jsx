@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import useConversation from "../zustand/useConversation";
+import { extractTime } from "../utils/extractTime";
 
 export default function Message({ message }) {
   const { authUser } = useContext(AuthContext);
   const { selectedConversation } = useConversation();
+  const formattedTime = extractTime(message.createdAt);
 
   const fromMe = message.senderId === authUser.data._id;
 
@@ -25,7 +27,7 @@ export default function Message({ message }) {
         {message.message}
       </div>
       <div className="chat-footer text-xs text-white opacity-50 flex gap-1 items-center">
-        10:47
+        {formattedTime}
       </div>
     </div>
   );
