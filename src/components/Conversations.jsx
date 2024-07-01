@@ -9,12 +9,18 @@ export default function Conversations() {
 
   return (
     <div className="flex flex-col py-2 overflow-auto">
-      <Conversation />
-      <Conversation />
-      <Conversation />
-      <Conversation />
-      <Conversation />
-      <Conversation />
+      {loading ? (
+        <span className="loading loading-spinner"></span>
+      ) : (
+        conversations.map((conversation, idx) => (
+          <Conversation
+            key={conversation._id}
+            conversation={conversation}
+            // To not show divider for the last conversation
+            lastIdx={idx === conversations.length - 1}
+          />
+        ))
+      )}
     </div>
   );
 }

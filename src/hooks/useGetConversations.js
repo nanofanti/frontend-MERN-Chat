@@ -9,9 +9,12 @@ export default function useGetConversations() {
     const getConversations = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:8080/user/users");
+        const res = await fetch("http://localhost:8080/user/users", {
+          method: "GET",
+          credentials: "include", // Include credentials to send cookies
+        });
         const data = await res.json();
-        console.log(data);
+
         if (data.error) {
           throw new Error(data.error);
         }

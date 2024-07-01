@@ -24,6 +24,7 @@ export default function useLogin() {
           username,
           password,
         }),
+        credentials: "include",
       });
       const data = await res.json();
       if (data.error) {
