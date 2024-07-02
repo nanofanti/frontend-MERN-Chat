@@ -12,7 +12,7 @@ export const SocketContextProvider = (props) => {
   useEffect(() => {
     if (authUser) {
       const socket = io("http://localhost:3000", {
-        query: { userId: authUser._id },
+        query: { userId: authUser.data._id },
         withCredentials: true,
       });
 
