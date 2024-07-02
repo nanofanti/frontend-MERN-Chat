@@ -10,10 +10,13 @@ export default function useLogout() {
   const logout = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8080/user/logout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      });
+      const res = await fetch(
+        "https://backend-mern-chat-hqzv.onrender.com/user/logout",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
       const data = await res.json();
       if (data.error) {

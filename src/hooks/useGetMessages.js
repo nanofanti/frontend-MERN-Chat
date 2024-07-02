@@ -11,7 +11,7 @@ export default function useGetMessages() {
       setLoading(true);
       try {
         const res = await fetch(
-          `http://localhost:8080/messages/${selectedConversation._id}`,
+          `https://backend-mern-chat-hqzv.onrender.com/messages/${selectedConversation._id}`,
           {
             method: "GET",
             credentials: "include", // Include credentials to send cookies
