@@ -12,7 +12,7 @@ export const SocketContextProvider = (props) => {
   useEffect(() => {
     if (authUser) {
       const socket = io("https://backend-mern-chat-hqzv.onrender.com", {
-        query: { userId: authUser.data._id },
+        query: { userId: authUser._id },
         withCredentials: true,
       });
 
