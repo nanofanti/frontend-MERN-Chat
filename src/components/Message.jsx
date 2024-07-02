@@ -16,6 +16,8 @@ export default function Message({ message }) {
     : selectedConversation?.profilePic;
   const bubbleBgColor = fromMe ? "bg-green-500" : "";
 
+  const shakeClass = message.shouldShake ? "shake" : "";
+
   return (
     <div className={`chat ${chatClassName}`}>
       <div className="chat-image avatar">
@@ -23,7 +25,9 @@ export default function Message({ message }) {
           <img src={profilePic} alt="" />
         </div>
       </div>
-      <div className={`chat-bubble text-white ${bubbleBgColor} pb-2`}>
+      <div
+        className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}
+      >
         {message.message}
       </div>
       <div className="chat-footer text-xs text-white opacity-50 flex gap-1 items-center">

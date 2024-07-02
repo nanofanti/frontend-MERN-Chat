@@ -9,8 +9,6 @@ export const SocketContextProvider = (props) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
 
-  console.log(authUser.data);
-
   useEffect(() => {
     if (authUser) {
       const socket = io("http://localhost:3000", {
