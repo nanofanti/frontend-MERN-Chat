@@ -26,17 +26,20 @@ export default function useSignup() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8080/user/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName,
-          username,
-          password,
-          confirmPassword,
-          gender,
-        }),
-      });
+      const res = await fetch(
+        "https://backend-mern-chat-ay5a.onrender.com/user/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fullName,
+            username,
+            password,
+            confirmPassword,
+            gender,
+          }),
+        }
+      );
 
       const data = await res.json();
       if (data.error) {

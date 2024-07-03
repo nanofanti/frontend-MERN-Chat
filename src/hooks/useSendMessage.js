@@ -10,7 +10,7 @@ export default function useSendMessage() {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://localhost:8080/messages/send/${selectedConversation._id}`,
+        `https://backend-mern-chat-ay5a.onrender.com/messages/send/${selectedConversation._id}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

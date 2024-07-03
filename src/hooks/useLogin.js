@@ -17,15 +17,18 @@ export default function useLogin() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8080/user/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://backend-mern-chat-ay5a.onrender.com/user/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+          credentials: "include",
+        }
+      );
       const data = await res.json();
       if (data.error) {
         throw new Error(data.error);
