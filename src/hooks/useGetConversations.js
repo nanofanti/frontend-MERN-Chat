@@ -9,13 +9,10 @@ export default function useGetConversations() {
     const getConversations = async () => {
       setLoading(true);
       try {
-        const res = await fetch(
-          "https://backend-mern-chat-ay5a.onrender.com/user/users",
-          {
-            method: "GET",
-            credentials: "include", // Include credentials to send cookies
-          }
-        );
+        const res = await fetch("http://localhost:8080/user/users", {
+          method: "GET",
+          credentials: "include", // Include credentials to send cookies
+        });
         const data = await res.json();
 
         if (data.error) {
