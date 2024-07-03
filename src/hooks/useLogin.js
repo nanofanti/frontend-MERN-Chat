@@ -40,7 +40,13 @@ export default function useLogin() {
 
       toast.success("Logged in successfully!");
     } catch (error) {
-      toast.error(error.message);
+      if (error.message.includes("CORS")) {
+        toast.error(
+          "CORS Error: Please ensure the server is configured correctly."
+        );
+      } else {
+        toast.error(error.message);
+      }
     } finally {
       setLoading(false);
     }
