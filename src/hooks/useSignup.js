@@ -48,7 +48,7 @@ export default function useSignup() {
 
       //CONTEXT
       setAuthUser(data);
-
+      console.log(data);
       toast.success("Signed up successfully!");
     } catch (error) {
       toast.error(error.message);
